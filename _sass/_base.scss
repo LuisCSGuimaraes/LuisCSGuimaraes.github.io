@@ -43,7 +43,10 @@ p {
 }
 
 .bg-primary {
-    background-color: $theme-primary;
+    background-image: url(/img/portfolio/body.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f9f9f9;
 }
 
 .bg-dark {
