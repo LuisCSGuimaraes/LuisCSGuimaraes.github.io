@@ -8,8 +8,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+// Aplica o tema imediatamente no <head> (Sistema do Usuário ou escolha manual salva) para evitar flash visual (FOUC)
+(function() {
+    const saved = localStorage.getItem('lg-octo-theme');
+    const sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (saved === 'light' || (!saved && sysLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+})();
+</script>
 <style>
 :root {
+    color-scheme: dark;
     --bg: #070b14;
     --bg-nav: rgba(7, 11, 20, 0.88);
     --bg-card: #0f172a;
@@ -27,6 +38,7 @@
     --grad-title: linear-gradient(90deg, #f8fafc 0%, #38bdf8 55%, #10b981 100%);
 }
 [data-theme="light"] {
+    color-scheme: light;
     --bg: #f8fafc;
     --bg-nav: rgba(248, 250, 252, 0.92);
     --bg-card: #ffffff;
@@ -267,7 +279,7 @@ body {
 </header>
 
 <main class="col">
-    <!-- 1. HERO (Sem a bolinha acima da foto) -->
+    <!-- 1. HERO -->
     <section class="hero">
         <div class="hero-grid">
             <div class="planet-avatar">
@@ -329,7 +341,7 @@ body {
         </div>
     </section>
 
-    <!-- 6. ENCERRAMENTO PLANETÁRIO (Atualizado com a paleta Cyber-Trust) -->
+    <!-- 6. ENCERRAMENTO PLANETÁRIO -->
     <footer class="planet-footer">
         <svg class="planets-svg" viewBox="0 0 260 90">
             <circle cx="45" cy="48" r="22" fill="#10b981" opacity="0.9"/>
@@ -556,11 +568,22 @@ window.setLang = (l) => {
     renderPage();
 };
 
-// Alternância de Tema Claro / Escuro
+// Tema Adaptativo ao Sistema do Usuário + Botão Manual
 const themeBtn = document.getElementById('themeBtn');
-if (localStorage.getItem('lg-octo-theme') === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-}
+const sysThemeQuery = window.matchMedia('(prefers-color-scheme: light)');
+
+// Escuta mudanças no tema do Sistema Operacional em tempo real (caso o usuário não tenha fixado manualmente)
+sysThemeQuery.addEventListener('change', (e) => {
+    if (!localStorage.getItem('lg-octo-theme')) {
+        if (e.matches) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+        renderCurve();
+    }
+});
+
 themeBtn.addEventListener('click', () => {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     if (isLight) {
