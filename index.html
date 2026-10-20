@@ -1,3 +1,557 @@
----
-layout: front
----
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Guimarães — Data, Automation & Applied AI</title>
+<meta name="description" content="Infográfico de carreira e portfólio de Luis Cláudio Guimarães — Analista de Sistemas | Dados, Automação e IA Aplicada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #0a0e17;
+    --bg-card: #111726;
+    --bg-card-hi: #172033;
+    --txt: #f0f6fc;
+    --txt-sec: #8b949e;
+    --magenta: #db2777;
+    --purple: #9333ea;
+    --cyan: #2dd4bf;
+    --amber: #f59e0b;
+    --orange: #f97316;
+    --bdr: rgba(240, 246, 252, 0.09);
+    --grad-bar: linear-gradient(90deg, #7e22ce 0%, #db2777 65%, #f43f5e 100%);
+    --grad-title: linear-gradient(90deg, #f97316 0%, #ec4899 55%, #a855f7 100%);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(1px 1px at 15% 12%, rgba(255,255,255,0.35) 50%, transparent 100%),
+        radial-gradient(1px 1px at 78% 24%, rgba(45,212,191,0.35) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 42% 58%, rgba(219,39,119,0.3) 50%, transparent 100%),
+        radial-gradient(1px 1px at 88% 76%, rgba(255,255,255,0.25) 50%, transparent 100%);
+    background-size: 380px 380px;
+    color: var(--txt);
+    line-height: 1.55;
+    overflow-x: hidden;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+.col { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Barra Flutuante Discreta */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--bdr);
+}
+.nav-in {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links { display: flex; gap: 1rem; }
+.nav-links a { color: var(--txt-sec); text-decoration: none; font-size: 0.76rem; font-weight: 600; transition: 0.2s; }
+.nav-links a:hover { color: var(--cyan); }
+.lang-box { display: flex; background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 6px; padding: 2px; }
+.l-btn { background: 0; border: 0; color: var(--txt-sec); font-size: 0.7rem; font-weight: 700; padding: 0.22rem 0.55rem; border-radius: 4px; cursor: pointer; }
+.l-btn.active { background: var(--magenta); color: #fff; }
+
+/* 1. HERO OCTOVERSE */
+.hero { padding: 4rem 0 2.5rem; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 115px 1fr; gap: 1.75rem; align-items: center; }
+.planet-avatar { position: relative; width: 110px; height: 110px; }
+.planet-avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--magenta);
+    box-shadow: 0 0 35px rgba(219, 39, 119, 0.35);
+}
+.orbit-dot {
+    position: absolute; top: -6px; right: 6px; width: 18px; height: 18px;
+    border-radius: 50%; background: var(--grad-title);
+    box-shadow: 0 0 12px var(--orange);
+}
+.octo-title {
+    font-size: clamp(1.8rem, 4vw, 2.65rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: var(--grad-title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.45rem;
+}
+.octo-sub { font-size: 0.9rem; color: var(--txt-sec); max-width: 560px; margin-bottom: 1rem; }
+.octo-sub strong { color: var(--txt); }
+.contact-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.c-pill {
+    font-size: 0.72rem; font-weight: 600; padding: 0.35rem 0.75rem;
+    border-radius: 99px; background: var(--bg-card); border: 1px solid var(--bdr);
+    color: var(--txt); text-decoration: none; transition: 0.2s;
+}
+.c-pill:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+.c-pill.pri { background: rgba(45, 212, 191, 0.12); border-color: rgba(45, 212, 191, 0.4); color: var(--cyan); }
+
+/* Separador de Capítulo Infográfico */
+.sec { padding: 2.8rem 0; border-top: 1px solid var(--bdr); }
+.sec-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.3rem; }
+.sec-h { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+.sec-p { font-size: 0.84rem; color: var(--txt-sec); max-width: 600px; margin-bottom: 1.5rem; }
+
+/* 2. CONSTELAÇÃO INTERATIVA */
+.constellation-wrap {
+    position: relative;
+    background: radial-gradient(circle at center, rgba(147, 51, 234, 0.12) 0%, rgba(10, 14, 23, 0) 70%);
+    border: 1px solid var(--bdr);
+    border-radius: 18px;
+    overflow: hidden;
+    height: 300px;
+}
+#netCanvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
+.net-hint { position: absolute; bottom: 10px; right: 14px; font-size: 0.68rem; color: var(--txt-sec); pointer-events: none; }
+
+/* 3. BIG STATS CALLOUTS (Octoverse Style) */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin: 1.8rem 0 0.5rem; }
+.stat-item { border-left: 2px solid var(--magenta); padding-left: 0.9rem; }
+.stat-item:nth-child(2) { border-color: var(--cyan); }
+.stat-item:nth-child(3) { border-color: var(--amber); }
+.stat-item:nth-child(4) { border-color: var(--purple); }
+.stat-num { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; color: var(--txt); }
+.stat-num span { color: var(--cyan); font-size: 1.2rem; }
+.stat-lbl { font-size: 0.75rem; font-weight: 700; color: var(--txt); margin-top: 0.25rem; }
+.stat-sub { font-size: 0.68rem; color: var(--txt-sec); }
+
+/* 4. GRÁFICO DE BARRAS HORIZONTAIS (PROJETOS E IMPACTO) */
+.bar-chart { display: flex; flex-direction: column; gap: 0.7rem; }
+.bar-row {
+    display: grid; grid-template-columns: 195px 1fr 90px; align-items: center; gap: 0.85rem;
+    padding: 0.55rem 0.75rem; border-radius: 10px; background: var(--bg-card);
+    border: 1px solid var(--bdr); cursor: pointer; transition: 0.2s;
+}
+.bar-row:hover, .bar-row.active { border-color: var(--magenta); background: var(--bg-card-hi); }
+.bar-name { font-size: 0.78rem; font-weight: 700; color: var(--txt); }
+.bar-name small { display: block; font-size: 0.65rem; color: var(--txt-sec); font-weight: 400; }
+.bar-track { height: 18px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; background: var(--grad-bar); border-radius: 4px; transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.bar-metric { font-size: 0.72rem; font-weight: 700; color: var(--cyan); text-align: right; }
+
+/* Card de Inspeção do Projeto Selecionado */
+.proj-drawer {
+    margin-top: 1rem; padding: 1.15rem 1.3rem; border-radius: 12px;
+    background: var(--bg-card-hi); border: 1px solid rgba(219, 39, 119, 0.4);
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.proj-drawer h4 { font-size: 0.92rem; font-weight: 800; color: var(--amber); margin-bottom: 0.2rem; }
+.proj-drawer p { font-size: 0.78rem; color: var(--txt); max-width: 540px; }
+.flow-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.f-tag { font-size: 0.66rem; padding: 0.15rem 0.5rem; border-radius: 4px; background: var(--bg); color: var(--cyan); border: 1px solid var(--bdr); }
+
+/* 5. QUADRANTES DE LEADERBOARD (STACK + EDUCAÇÃO/CERTS) */
+.quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.quad-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 12px; padding: 1.15rem; }
+.quad-hdr { font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--txt); padding-bottom: 0.65rem; margin-bottom: 0.65rem; border-bottom: 1px solid var(--bdr); display: flex; justify-content: space-between; }
+.rank-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.rank-item { display: flex; align-items: center; justify-content: space-between; font-size: 0.76rem; padding: 0.3rem 0; border-bottom: 1px dashed rgba(255,255,255,0.05); }
+.rank-item:last-child { border: 0; }
+.r-left { display: flex; align-items: center; gap: 0.5rem; }
+.r-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); flex-shrink: 0; }
+.r-dot.c { background: var(--cyan); }
+.r-dot.a { background: var(--amber); }
+.r-dot.p { background: var(--purple); }
+.r-meta { font-size: 0.66rem; color: var(--txt-sec); }
+
+/* 6. CURVA EXPONENCIAL DE CARREIRA (2012 - 2026) */
+.curve-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 14px; padding: 1.25rem; }
+.curve-svg { width: 100%; height: 185px; overflow: visible; }
+.c-node { cursor: pointer; transition: transform 0.2s; }
+.c-node:hover { transform: scale(1.25); }
+.career-card {
+    margin-top: 0.85rem; padding: 0.95rem 1.1rem; border-radius: 10px;
+    background: var(--bg); border: 1px solid var(--bdr);
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.career-card strong { color: var(--amber); font-size: 0.86rem; }
+.career-card p { font-size: 0.77rem; color: var(--txt-sec); margin-top: 0.2rem; }
+
+/* 7. FOOTER PLANETÁRIO OCTOVERSE */
+.planet-footer { text-align: center; padding: 3.5rem 0 4rem; border-top: 1px solid var(--bdr); position: relative; }
+.planets-svg { width: 260px; height: 90px; margin-bottom: 1rem; }
+.footer-msg {
+    font-size: 1.35rem; font-weight: 800;
+    background: var(--grad-title); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 0.4rem;
+}
+
+@media (max-width: 720px) {
+    .hero-grid, .quad-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .bar-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    .bar-metric { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+    <div class="nav-in">
+        <span class="mono" style="font-size:0.78rem;font-weight:700;color:var(--txt)">// LUIS GUIMARÃES</span>
+        <nav class="nav-links">
+            <a href="#constelacao" id="n1">Ecossistema</a>
+            <a href="#projetos" id="n2">Projetos</a>
+            <a href="#rankings" id="n3">Stack & Formação</a>
+            <a href="#evolucao" id="n4">Trajetória</a>
+        </nav>
+        <div class="lang-box">
+            <button class="l-btn active" id="bPt" onclick="setLang('pt')">PT</button>
+            <button class="l-btn" id="bEn" onclick="setLang('en')">EN</button>
+        </div>
+    </div>
+</header>
+
+<main class="col">
+    <!-- 1. HERO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="planet-avatar">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGwYWAygzN0mA/profile-displayphoto-scale_400_400/B4DZq9JKHtJMAg-/0/1764109886442?e=1793836800&v=beta&t=G9P2X246IM3aOW28ZliA48l_OfI4Kh9-xhmvFyUs79k" alt="Luis Cláudio Guimarães">
+                <span class="orbit-dot"></span>
+            </div>
+            <div>
+                <span class="mono" style="font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em" id="hEye">Tragetória Profissional & Acadêmica • 2012–2026</span>
+                <h1 class="octo-title">Luis Guimarães</h1>
+                <p class="octo-sub" id="hSub"></p>
+                <div class="contact-pills mono">
+                    <a href="https://www.linkedin.com/in/luiscsguimaraes" target="_blank" class="c-pill">LinkedIn ↗</a>
+                    <a href="https://github.com/LuisCSGuimaraes" target="_blank" class="c-pill">GitHub ↗</a>
+                    <a href="mailto:luis.csguimaraes@gmail.com" class="c-pill">luis.csguimaraes@gmail.com</a>
+                    <span class="c-pill" style="color:var(--amber)" id="hLoc">📍 RJ </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid"></div>
+    </section>
+
+    <!-- 2. CONSTELAÇÃO DE ECOSSISTEMA TÉCNICO -->
+    <section class="sec" id="constelacao">
+        <span class="sec-tag mono" id="s1Tag">01 / Grafo de Conexões</span>
+        <h2 class="sec-h" id="s1H">Ecossistema Conectado: Negócio, Dados & IA</h2>
+        <p class="sec-p" id="s1P"></p>
+        <div class="constellation-wrap">
+            <canvas id="netCanvas"></canvas>
+            <span class="net-hint mono" id="netHint">Passe o mouse para interagir com os nós da arquitetura</span>
+        </div>
+    </section>
+
+    <!-- 3. GRÁFICO DE BARRAS HORIZONTAIS (PROJETOS EM PRODUÇÃO E ML) -->
+    <section class="sec" id="projetos">
+        <span class="sec-tag mono" id="s2Tag">02 / Sistemas & Modelos</span>
+        <h2 class="sec-h" id="s2H">Impacto e Cobertura por Projeto Entregue</h2>
+        <p class="sec-p" id="s2P"></p>
+        <div class="bar-chart" id="barChart"></div>
+        <div class="proj-drawer" id="projDrawer"></div>
+    </section>
+
+    <!-- 4. 4 QUADRANTES DE RANKING (STACK + FORMAÇÃO + CERTIFICAÇÕES) -->
+    <section class="sec" id="rankings">
+        <span class="sec-tag mono" id="s3Tag">03 / Competências & Credenciais</span>
+        <h2 class="sec-h" id="s3H">Domínio Técnico, Formação Acadêmica & Certificações</h2>
+        <p class="sec-p" id="s3P"></p>
+        <div class="quad-grid" id="quadGrid"></div>
+    </section>
+
+    <!-- 5. CURVA EXPONENCIAL DE CARREIRA -->
+    <section class="sec" id="evolucao">
+        <span class="sec-tag mono" id="s4Tag">04 / Progressão de Carreira</span>
+        <h2 class="sec-h" id="s4H">14+ Anos de Evolução na Gaia Silva Gaede (2012 – 2026)</h2>
+        <p class="sec-p" id="s4P"></p>
+        <div class="curve-box">
+            <svg class="curve-svg" viewBox="0 0 740 175" id="curveSvg"></svg>
+            <div class="career-card" id="careerCard"></div>
+        </div>
+    </section>
+
+    <!-- 6. ENCERRAMENTO PLANETÁRIO -->
+    <footer class="planet-footer">
+        <svg class="planets-svg" viewBox="0 0 260 90">
+            <circle cx="45" cy="48" r="22" fill="#14b8a6" opacity="0.9"/>
+            <ellipse cx="125" cy="36" rx="34" ry="10" fill="none" stroke="#f59e0b" stroke-width="4" transform="rotate(-15 125 36)"/>
+            <circle cx="125" cy="36" r="18" fill="#f97316"/>
+            <circle cx="205" cy="54" r="28" fill="#db2777"/>
+            <circle cx="85" cy="72" r="9" fill="#9333ea"/>
+        </svg>
+        <div class="footer-msg" id="fMsg">Pronto para construir o próximo sistema em produção.</div>
+        <p class="mono" style="font-size:0.74rem;color:var(--txt-sec)">Luis Cláudio da Silva Guimarães • luis.csguimaraes@gmail.com</p>
+    </footer>
+</main>
+
+<script>
+let lang = 'pt', selProj = 0, selCar = 4;
+
+const CONTENT = {
+    pt: {
+        nav: ["Ecossistema", "Projetos", "Stack & Formação", "Trajetória"],
+        hEye: "Engenharia, Dados & IA Aplicada • 2012–2026",
+        hSub: "<strong>Analista de Sistemas | Dados, Automação e IA Aplicada.</strong> Pós-graduando em Data Science & Analytics (USP/Esalq). Especialista em traduzir dores complexas de negócio em sistemas em produção e plataformas seguras de agentes.",
+        hLoc: "📍 RJ ",
+        stats: [
+            { n: "14<span>+</span>", l: "Anos em TI & Dados", s: "De Estagiário a Sistemas & IA" },
+            { n: "5<span> un</span>", l: "Filiais em Produção", s: "Sistema Nacional de Inadimplência" },
+            { n: "92<span>%</span>", l: "Recall em Modelos ML", s: "Churn (SHAP) & Fraudes Cartão" },
+            { n: "R$ 0", l: "Custo Cloud Externa", s: "Motor Autônomo Docker / n8n" }
+        ],
+        s1Tag: "01 / Grafo de Arquitetura", s1H: "Ecossistema Conectado: Negócio, Dados & IA",
+        s1P: "Como as ferramentas do meu currículo se conectam na prática: do ERP jurídico e notas fiscais (NF-e) até Agentes de IA confinados e dashboards para sócios.",
+        netHint: "Passe o mouse sobre a constelação para interagir com os nós",
+        s2Tag: "02 / Sistemas & Estudos", s2H: "Projetos em Produção e Modelos de Machine Learning",
+        s2P: "Clique em qualquer barra abaixo para inspecionar a stack técnica, a arquitetura de segurança e abrir o notebook correspondente.",
+        projs: [
+            { name: "Sandbox & Harness de IA", sub: "WSL2 • Bubblewrap • Gitea", w: 100, m: "Contenção OS", desc: "Plataforma segura para áreas não técnicas sob sigilo jurídico (OAB/LGPD): sandbox Linux (WSL2/bubblewrap), Gitea próprio, FastAPI e bateria de testes adversariais simulando agente comprometido.", tags: ["WSL2 / Bubblewrap", "Gitea Self-Hosted", "FastAPI", "Testes Adversariais", "AI Harness"], url: "" },
+            { name: "Sistema de Inadimplência", sub: "React • Node • SQL • Azure", w: 94, m: "5 Unidades", desc: "Concebido do requisito à produção em 5 unidades nacionais. SSO, controle RBAC, auditoria de logs, esteira Dev/Homolog/Prod e ETL Python/SQL do ERP Legal One.", tags: ["React & Node.js", "SQL & Azure", "SSO + RBAC", "Power BI (DRE)", "Impacto Financeiro"], url: "" },
+            { name: "Motor Autônomo Multicanal", sub: "n8n • Evolution API • Docker", w: 90, m: "100% Local", desc: "Arquitetura self-hosted em Linux/Docker (zero custo cloud): monitora canais em tempo real (sniffer), aciona LLMs e publica em WhatsApp, Telegram, Instagram e TikTok com captura de leads no Direct.", tags: ["n8n", "Evolution API", "Docker / Linux", "LLMs", "Direct Lead Capture"], url: "" },
+            { name: "Fraudes em Cartões (ML)", sub: "Python • Imblearn • IQR", w: 92, m: "92% Recall", desc: "Classificação em dataset altamente desbalanceado (0,17% fraudes) aplicando remoção de outliers por IQR Score e RandomUnderSampler.", tags: ["Python", "Imblearn", "IQR Score", "92% Recall"], url: "https://nbviewer.org/github/LuisCSGuimaraes/FraudesEmCartoesCreditoML/blob/main/Notebook/DeteccaoFraudeCartoesCreditoML.ipynb" },
+            { name: "Churn Prediction Telecom", sub: "Scikit-learn • LinearSVC • SHAP", w: 91, m: "91–92% Recall", desc: "Pipeline ML ponta a ponta (EDA, Feature Engineering, tuning de hiperparâmetros e explicabilidade com SHAP), atingindo 91–92% de Recall.", tags: ["Scikit-learn", "LinearSVC", "SHAP Values", "91-92% Recall"], url: "https://nbviewer.org/github/LuisCSGuimaraes/ChurnPrediction/blob/main/Notebook/Churn%20Prediction.ipynb" },
+            { name: "Algoritmos Genéticos (USP)", sub: "Pesquisa Operacional • NF-e", w: 86, m: "MBA USP/Esalq", desc: "Otimização combinatória aplicada a notas fiscais reais (NF-e) anonimizadas de micromercados autônomos para maximizar margem e giro sob restrição de prateleira.", tags: ["Algoritmos Genéticos", "Python", "XML NF-e", "Pesquisa Operacional"], url: "" }
+        ],
+        s3Tag: "03 / Credenciais & Ferramentas", s3H: "Quadro de Habilidades, Formação & Certificações",
+        s3P: "Resumo estruturado das competências técnicas, formação universitária e certificações oficiais do currículo.",
+        quads: [
+            { title: "IA, Agentes & Automação", dot: "", items: [["Engenharia de Harness & Guardrails", "OWASP Agentic"], ["n8n & Evolution API", "Self-Hosted Docker"], ["Claude Code / API, OpenAI & Gemini", "LLMs Aplicados"], ["Power Apps & Power Automate", "SharePoint / Fluxos"], ["Administração Claude Team", "2 Comitês Internos IA"]] },
+            { title: "Dados, ML & Business Intelligence", dot: "c", items: [["Python (Pandas, NumPy, Scikit, SHAP)", "ML & ETL"], ["SQL (PostgreSQL, MySQL) & ERP Legal One", "Modelagem & ELT"], ["Power BI (DAX Avançado & Power Query)", "DRE p/ Sócios"], ["Algoritmos Genéticos & Otimização", "Pesquisa USP"], ["Excel Avançado (Calculadora RH INSS/IRRF)", "Automação"]] },
+            { title: "Infraestrutura, DevOps & Segurança", dot: "a", items: [["Linux (Ubuntu / WSL2) & Bubblewrap", "Isolamento OS"], ["Docker, Git/GitHub & Gitea Self-Hosted", "Versionamento"], ["Azure, Entra ID (Azure AD) & Intune", "SSO / RBAC"], ["LGPD & Sigilo OAB em Sistemas", "Compliance"], ["Active Directory, DNS & Redes", "Base Sólida"]] },
+            { title: "Formação Acadêmica & Certificações", dot: "p", items: [["MBA Data Science & Analytics", "USP/Esalq (2027)"], ["Tecnólogo em Gestão de TI", "Estácio (2021)"], ["Certificações Microsoft AI-900 & PL-900", "Oficial (2023)"], ["Certificação Google Data Analytics", "Oficial (2023)"], ["Cursos Stanford ML, FIAP, USP & Sigmoidal", "Especialização"]] }
+        ],
+        s4Tag: "04 / Curva de Crescimento", s4H: "14+ Anos de Progressão (Gaia Silva Gaede)",
+        s4P: "Clique nos pontos da curva para ver as entregas de cada ciclo profissional desde 2012.",
+        career: [
+            { yr: "2012", role: "Estagiário de TI", desc: "Configuração de hardware, software, redes locais e suporte direto a utilizadores." },
+            { yr: "2013–2017", role: "Suporte Técnico B", desc: "Administração MySQL, Intranet (Apache/WordPress), Active Directory, DNS e rotinas Backup Exec." },
+            { yr: "2017–Abr 26", role: "Analista de TI Pleno", desc: "Dashboards DRE/Balancetes em Power BI (DAX) p/ sócios, App de Compras (Power Apps/SharePoint), Calculadora RH (INSS/IRRF) e Azure AD/Intune." },
+            { yr: "Abr–Ago 26", role: "Analista de TI Sênior", desc: "Gestão analítica do parque de ativos de TI (idade e investimento por unidade) e prototipação do sistema de inadimplência com IA generativa." },
+            { yr: "Ago 26–Atual", role: "Analista de Sistemas: Dados & IA", desc: "Sistema de Inadimplência em 5 unidades, Sandbox WSL2/Bubblewrap validada com testes adversariais, AI Harness, ETL Legal One e 2 Comitês de IA." }
+        ],
+        fMsg: "Pronto para construir o próximo sistema em produção."
+    },
+    en: {
+        nav: ["Ecosystem", "Projects", "Stack & Education", "Timeline"],
+        hEye: "Engineering, Data & Applied AI • 2012–2026",
+        hSub: "<strong>Systems Analyst | Data, Automation & Applied AI.</strong> MBA Candidate in Data Science & Analytics (USP/Esalq). Specialist in translating complex business pain points into production software and secure AI agent platforms.",
+        hLoc: "📍 RJ, Brazil",
+        stats: [
+            { n: "14<span>+</span>", l: "Years in IT & Data", s: "From Intern to Systems & AI" },
+            { n: "5<span> br</span>", l: "Branches in Production", s: "National Delinquency System" },
+            { n: "92<span>%</span>", l: "ML Model Recall", s: "Churn (SHAP) & Card Fraud" },
+            { n: "$0", l: "External Cloud Cost", s: "Self-Hosted Docker / n8n Engine" }
+        ],
+        s1Tag: "01 / Architecture Graph", s1H: "Connected Ecosystem: Business, Data & AI",
+        s1P: "How my technical stack connects in production: from legal ERPs and tax invoices (NF-e) to sandboxed AI Agents and executive C-level dashboards.",
+        netHint: "Hover over the constellation to interact with the architecture nodes",
+        s2Tag: "02 / Systems & Studies", s2H: "Production Systems & Machine Learning Models",
+        s2P: "Click any bar below to inspect the technical stack, security architecture, and open the Jupyter Notebook.",
+        projs: [
+            { name: "Secure AI Sandbox & Harness", sub: "WSL2 • Bubblewrap • Gitea", w: 100, m: "OS Isolation", desc: "Secure AI development platform for non-technical legal teams (OAB/LGPD): Linux OS sandbox (WSL2/bubblewrap), self-hosted Gitea, FastAPI, and adversarial testing simulating a compromised agent.", tags: ["WSL2 / Bubblewrap", "Self-Hosted Gitea", "FastAPI", "Adversarial Tests", "AI Harness"], url: "" },
+            { name: "Delinquency Management System", sub: "React • Node • SQL • Azure", w: 94, m: "5 Branches", desc: "Conceived and led from requirements to production across 5 national units. SSO, RBAC, audit logs, Dev/Stage/Prod pipeline, and Legal One ERP Python/SQL ETL.", tags: ["React & Node.js", "SQL & Azure", "SSO + RBAC", "Power BI (P&L)", "Financial ROI"], url: "" },
+            { name: "Autonomous Multi-Channel Engine", sub: "n8n • Evolution API • Docker", w: 90, m: "100% Local", desc: "100% self-hosted Linux/Docker architecture ($0 cloud cost): real-time channel sniffer, LLM content variation, randomized publishing (WA, TG, IG, TikTok), and automated DM lead capture.", tags: ["n8n", "Evolution API", "Docker / Linux", "LLMs", "Direct Lead Capture"], url: "" },
+            { name: "Credit Card Fraud Detection", sub: "Python • Imblearn • IQR", w: 92, m: "92% Recall", desc: "Classification on a heavily imbalanced dataset (0.17% frauds) applying IQR Score outlier removal and RandomUnderSampler.", tags: ["Python", "Imblearn", "IQR Score", "92% Recall"], url: "https://nbviewer.org/github/LuisCSGuimaraes/FraudesEmCartoesCreditoML/blob/main/Notebook/DeteccaoFraudeCartoesCreditoML.ipynb" },
+            { name: "Telecom Churn Prediction", sub: "Scikit-learn • LinearSVC • SHAP", w: 91, m: "91–92% Recall", desc: "End-to-end ML pipeline (EDA, Feature Engineering, hyperparameter tuning, and SHAP explainability), achieving ~91–92% Recall.", tags: ["Scikit-learn", "LinearSVC", "SHAP Values", "91-92% Recall"], url: "https://nbviewer.org/github/LuisCSGuimaraes/ChurnPrediction/blob/main/Notebook/Churn%20Prediction.ipynb" },
+            { name: "Genetic Algorithms in Retail", sub: "Operations Research • NF-e", w: 86, m: "MBA USP/Esalq", desc: "Combinatorial optimization on real anonymized tax invoices (NF-e) from autonomous micro-markets to maximize margin and turnover under shelf constraints.", tags: ["Genetic Algorithms", "Python", "NF-e XML", "Operations Research"], url: "" }
+        ],
+        s3Tag: "03 / Credentials & Tooling", s3H: "Technical Stack, Academic Degrees & Certifications",
+        s3P: "Structured overview of hands-on skills, university degrees, and official certifications.",
+        quads: [
+            { title: "AI, Agents & Automation", dot: "", items: [["AI Harness Engineering & Guardrails", "OWASP Agentic"], ["n8n & Evolution API", "Self-Hosted Docker"], ["Claude Code / API, OpenAI & Gemini", "Applied LLMs"], ["Power Apps & Power Automate", "SharePoint / Flows"], ["Claude Team Admin", "2 Internal AI Committees"]] },
+            { title: "Data, ML & Business Intelligence", dot: "c", items: [["Python (Pandas, NumPy, Scikit, SHAP)", "ML & ETL"], ["SQL (PostgreSQL, MySQL) & Legal One ERP", "Modeling & ELT"], ["Power BI (Advanced DAX & Power Query)", "Partner P&L"], ["Genetic Algorithms & Optimization", "USP Research"], ["Advanced Excel (HR Tax Calculator)", "Automation"]] },
+            { title: "Infrastructure, DevOps & Security", dot: "a", items: [["Linux (Ubuntu / WSL2) & Bubblewrap", "OS Containment"], ["Docker, Git/GitHub & Self-Hosted Gitea", "Versioning"], ["Azure, Entra ID (Azure AD) & Intune", "SSO / RBAC"], ["Applied LGPD & Legal Secrecy", "Compliance"], ["Active Directory, DNS & Networking", "Core Infra"]] },
+            { title: "Academic Education & Certifications", dot: "p", items: [["MBA Data Science & Analytics", "USP/Esalq (2027)"], ["B.Sc. in IT Management", "Estácio (2021)"], ["Microsoft Certified: AI-900 & PL-900", "Official (2023)"], ["Google Data Analytics Certificate", "Official (2023)"], ["Stanford ML, FIAP, USP & Sigmoidal", "Specialized"]] }
+        ],
+        s4Tag: "04 / Growth Trajectory", s4H: "14+ Years of Progression (Gaia Silva Gaede)",
+        s4P: "Click the nodes along the curve to inspect key deliverables from each career stage since 2012.",
+        career: [
+            { yr: "2012", role: "IT Intern", desc: "Hardware, software, local network setup, and direct user support." },
+            { yr: "2013–2017", role: "IT Support Tech B", desc: "MySQL admin, Intranet (Apache/WordPress), Active Directory, DNS, and Backup Exec routines." },
+            { yr: "2017–Apr 26", role: "Mid-Level IT Analyst", desc: "Executive P&L Power BI dashboards (DAX) for partners, Power Apps procurement app, HR tax calculator, and Azure AD/Intune." },
+            { yr: "Apr–Aug 26", role: "Senior IT Analyst", desc: "IT asset lifecycle & capex analytics per unit, and AI-assisted prototyping of the Delinquency System." },
+            { yr: "Aug 26–Now", role: "Systems Analyst: Data & AI", desc: "Delinquency System in 5 branches, adversarial-tested WSL2/Bubblewrap AI Sandbox, AI Harness, Legal One ETL, and 2 AI Committees." }
+        ],
+        fMsg: "Ready to engineer the next system in production."
+    }
+};
+
+function renderPage() {
+    const L = CONTENT[lang];
+    document.getElementById('n1').textContent = L.nav[0];
+    document.getElementById('n2').textContent = L.nav[1];
+    document.getElementById('n3').textContent = L.nav[2];
+    document.getElementById('n4').textContent = L.nav[3];
+    document.getElementById('hEye').textContent = L.hEye;
+    document.getElementById('hSub').innerHTML = L.hSub;
+    document.getElementById('hLoc').textContent = L.hLoc;
+
+    document.getElementById('statsGrid').innerHTML = L.stats.map(s => `
+        <div class="stat-item">
+            <div class="stat-num mono">${s.n}</div>
+            <div class="stat-lbl">${s.l}</div>
+            <div class="stat-sub">${s.s}</div>
+        </div>
+    `).join('');
+
+    document.getElementById('s1Tag').textContent = L.s1Tag; document.getElementById('s1H').textContent = L.s1H; document.getElementById('s1P').textContent = L.s1P;
+    document.getElementById('netHint').textContent = L.netHint;
+    document.getElementById('s2Tag').textContent = L.s2Tag; document.getElementById('s2H').textContent = L.s2H; document.getElementById('s2P').textContent = L.s2P;
+    document.getElementById('s3Tag').textContent = L.s3Tag; document.getElementById('s3H').textContent = L.s3H; document.getElementById('s3P').textContent = L.s3P;
+    document.getElementById('s4Tag').textContent = L.s4Tag; document.getElementById('s4H').textContent = L.s4H; document.getElementById('s4P').textContent = L.s4P;
+    document.getElementById('fMsg').textContent = L.fMsg;
+
+    renderBars();
+    renderQuads();
+    renderCurve();
+}
+
+function renderBars() {
+    const L = CONTENT[lang];
+    document.getElementById('barChart').innerHTML = L.projs.map((p, i) => `
+        <div class="bar-row ${i===selProj?'active':''}" onclick="selProj=${i};renderBars()">
+            <div class="bar-name">${p.name}<small class="mono">${p.sub}</small></div>
+            <div class="bar-track"><div class="bar-fill" style="width:${p.w}%"></div></div>
+            <div class="bar-metric mono">${p.m}</div>
+        </div>
+    `).join('');
+
+    const p = L.projs[selProj];
+    document.getElementById('projDrawer').innerHTML = `
+        <div>
+            <h4>${p.name} <span class="mono" style="font-size:0.72rem;color:var(--cyan)">// ${p.m}</span></h4>
+            <p>${p.desc}</p>
+            <div class="flow-tags mono">${p.tags.map(t => `<span class="f-tag">${t}</span>`).join('')}</div>
+        </div>
+        ${p.url ? `<a href="${p.url}" target="_blank" class="c-pill pri mono">Notebook ↗</a>` : ''}
+    `;
+}
+
+function renderQuads() {
+    const L = CONTENT[lang];
+    document.getElementById('quadGrid').innerHTML = L.quads.map(q => `
+        <div class="quad-box">
+            <div class="quad-hdr mono"><span>${q.title}</span><span>●</span></div>
+            <ul class="rank-list">
+                ${q.items.map(it => `
+                    <li class="rank-item">
+                        <div class="r-left"><span class="r-dot ${q.dot}"></span><span>${it[0]}</span></div>
+                        <span class="r-meta mono">${it[1]}</span>
+                    </li>
+                `).join('')}
+            </ul>
+        </div>
+    `).join('');
+}
+
+function renderCurve() {
+    const L = CONTENT[lang];
+    const pts = [[60, 145], [215, 130], [385, 95], [545, 58], [680, 22]];
+    const pathD = "M 60 145 Q 150 140, 215 130 T 385 95 T 545 58 T 680 22";
+
+    document.getElementById('curveSvg').innerHTML = `
+        <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2dd4bf"/>
+                <stop offset="50%" stop-color="#db2777"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+        </defs>
+        <line x1="40" y1="155" x2="705" y2="155" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4"/>
+        <path d="${pathD}" fill="none" stroke="url(#lineGrad)" stroke-width="3.5"/>
+        ${pts.map((p, i) => `
+            <g class="c-node" onclick="selCar=${i};renderCurve()">
+                <circle cx="${p[0]}" cy="${p[1]}" r="${i===selCar?9:6}" fill="${i===selCar?'#f59e0b':'#db2777'}" stroke="#0a0e17" stroke-width="2"/>
+                <text x="${p[0]}" y="${p[1]-14}" text-anchor="middle" fill="${i===selCar?'#f59e0b':'#f0f6fc'}" class="mono" font-size="10" font-weight="700">${L.career[i].yr}</text>
+            </g>
+        `).join('')}
+    `;
+
+    const c = L.career[selCar];
+    document.getElementById('careerCard').innerHTML = `
+        <div>
+            <strong>${c.yr} — ${c.role}</strong>
+            <p>${c.desc}</p>
+        </div>
+        <span class="f-tag mono">Gaia Silva Gaede</span>
+    `;
+}
+
+window.setLang = (l) => {
+    lang = l;
+    document.getElementById('bPt').classList.toggle('active', l==='pt');
+    document.getElementById('bEn').classList.toggle('active', l==='en');
+    renderPage();
+};
+
+// Canvas de Constelação Interativa (Octoverse Network)
+const cvs = document.getElementById('netCanvas'), ctx = cvs.getContext('2d');
+let W, H, mouse = { x: -999, y: -999 };
+const labels = ["Python", "SQL", "AI Harness", "WSL2/Bubblewrap", "Power BI (DAX)", "n8n", "Evolution API", "React/Node", "Azure", "Gitea", "FastAPI", "Scikit/SHAP", "Genetic Alg.", "USP/Esalq", "Docker", "Legal One ETL"];
+const colors = ["#db2777", "#2dd4bf", "#f59e0b", "#a855f7"];
+const nodes = labels.map((l, i) => ({
+    l, c: colors[i % 4],
+    x: 60 + (i % 4) * 185 + Math.random() * 50,
+    y: 45 + Math.floor(i / 4) * 62 + Math.random() * 20,
+    vx: (Math.random() - 0.5) * 0.45,
+    vy: (Math.random() - 0.5) * 0.45,
+    r: i < 6 ? 6.5 : 4.5
+}));
+
+function resize() {
+    W = cvs.width = cvs.parentElement.clientWidth;
+    H = cvs.height = cvs.parentElement.clientHeight;
+}
+window.addEventListener('resize', resize); resize();
+cvs.addEventListener('mousemove', e => {
+    const r = cvs.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+});
+cvs.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+
+function drawNet() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 40 || a.x > W - 40) a.vx *= -1;
+        if (a.y < 25 || a.y > H - 25) a.vy *= -1;
+
+        for (let j = i + 1; j < nodes.length; j++) {
+            const b = nodes[j];
+            const d = Math.hypot(a.x - b.x, a.y - b.y);
+            if (d < 155) {
+                ctx.strokeStyle = `rgba(219, 39, 119, ${(1 - d / 155) * 0.35})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+            }
+        }
+        const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+        if (dm < 130) {
+            ctx.strokeStyle = "rgba(45, 212, 191, 0.65)";
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+        }
+        ctx.fillStyle = a.c;
+        ctx.beginPath(); ctx.arc(a.x, a.y, dm < 60 ? a.r + 2.5 : a.r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = dm < 60 ? "#fff" : "#c9d1d9";
+        ctx.font = `${dm < 60 ? "700 11px" : "500 10px"} 'JetBrains Mono', monospace`;
+        ctx.fillText(a.l, a.x + 9, a.y + 3);
+    }
+    requestAnimationFrame(drawNet);
+}
+drawNet();
+renderPage();
+</script>
+</body>
+</html>
