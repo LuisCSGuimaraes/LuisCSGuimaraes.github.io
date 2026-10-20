@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,76 +10,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --bg: #0a0e17;
-    --bg-card: #111726;
-    --bg-card-hi: #172033;
-    --txt: #f0f6fc;
-    --txt-sec: #8b949e;
-    --magenta: #db2777;
-    --purple: #9333ea;
-    --cyan: #2dd4bf;
-    --amber: #f59e0b;
-    --orange: #f97316;
-    --bdr: rgba(240, 246, 252, 0.09);
-    --grad-bar: linear-gradient(90deg, #7e22ce 0%, #db2777 65%, #f43f5e 100%);
-    --grad-title: linear-gradient(90deg, #f97316 0%, #ec4899 55%, #a855f7 100%);
+    --bg: #070b14;
+    --bg-nav: rgba(7, 11, 20, 0.88);
+    --bg-card: #0f172a;
+    --bg-card-hi: #1e293b;
+    --txt: #f8fafc;
+    --txt-sec: #94a3b8;
+    --magenta: #0ea5e9; /* Azul-Safira (Tecnologia & Dados) */
+    --purple: #6366f1;  /* Índigo Profundo (IA & Algoritmos) */
+    --cyan: #10b981;    /* Verde-Esmeralda (Segurança & Produção) */
+    --amber: #eab308;   /* Ouro Sóbrio (Senioridade & Destaques) */
+    --orange: #0284c7;  /* Azul-Cobalto */
+    --bdr: rgba(148, 163, 184, 0.14);
+    --track: rgba(255, 255, 255, 0.05);
+    --grad-bar: linear-gradient(90deg, #1e3a8a 0%, #0ea5e9 60%, #10b981 100%);
+    --grad-title: linear-gradient(90deg, #f8fafc 0%, #38bdf8 55%, #10b981 100%);
+}
+[data-theme="light"] {
+    --bg: #f8fafc;
+    --bg-nav: rgba(248, 250, 252, 0.92);
+    --bg-card: #ffffff;
+    --bg-card-hi: #f1f5f9;
+    --txt: #0f172a;
+    --txt-sec: #475569;
+    --magenta: #0284c7;
+    --purple: #4f46e5;
+    --cyan: #059669;
+    --amber: #b45309;
+    --orange: #0369a1;
+    --bdr: rgba(15, 23, 42, 0.1);
+    --track: rgba(15, 23, 42, 0.06);
+    --grad-bar: linear-gradient(90deg, #1e40af 0%, #0284c7 60%, #059669 100%);
+    --grad-title: linear-gradient(90deg, #0f172a 0%, #0284c7 55%, #059669 100%);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html, body {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     background-color: var(--bg);
     background-image:
-        radial-gradient(1px 1px at 15% 12%, rgba(255,255,255,0.35) 50%, transparent 100%),
-        radial-gradient(1px 1px at 78% 24%, rgba(45,212,191,0.35) 50%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 42% 58%, rgba(219,39,119,0.3) 50%, transparent 100%),
-        radial-gradient(1px 1px at 88% 76%, rgba(255,255,255,0.25) 50%, transparent 100%);
+        radial-gradient(1px 1px at 15% 12%, rgba(148,163,184,0.28) 50%, transparent 100%),
+        radial-gradient(1px 1px at 78% 24%, rgba(16,185,129,0.25) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 42% 58%, rgba(14,165,233,0.22) 50%, transparent 100%);
     background-size: 380px 380px;
     color: var(--txt);
     line-height: 1.55;
-    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 .mono { font-family: 'JetBrains Mono', monospace; }
-.col { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+.col { max-width: 820px; width: 100%; margin: 0 auto; padding: 0 1.25rem; }
 
-/* Barra Flutuante Discreta */
+/* Barra Flutuante Discreta e Responsiva */
 .top-nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 14, 23, 0.85);
+    background: var(--bg-nav);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--bdr);
 }
 .nav-in {
     max-width: 820px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     height: 54px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
 }
-.nav-links { display: flex; gap: 1rem; }
-.nav-links a { color: var(--txt-sec); text-decoration: none; font-size: 0.76rem; font-weight: 600; transition: 0.2s; }
+.brand-txt { font-size: 0.78rem; font-weight: 700; color: var(--txt); white-space: nowrap; }
+.nav-links { display: flex; gap: 0.9rem; }
+.nav-links a { color: var(--txt-sec); text-decoration: none; font-size: 0.76rem; font-weight: 600; transition: 0.2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--cyan); }
+.nav-Grouping { display: flex; align-items: center; gap: 0.45rem; flex-shrink: 0; }
 .lang-box { display: flex; background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 6px; padding: 2px; }
-.l-btn { background: 0; border: 0; color: var(--txt-sec); font-size: 0.7rem; font-weight: 700; padding: 0.22rem 0.55rem; border-radius: 4px; cursor: pointer; }
+.l-btn { background: 0; border: 0; color: var(--txt-sec); font-size: 0.7rem; font-weight: 700; padding: 0.24rem 0.55rem; border-radius: 4px; cursor: pointer; }
 .l-btn.active { background: var(--magenta); color: #fff; }
+.theme-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--bdr);
+    color: var(--txt);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-/* 1. HERO OCTOVERSE */
-.hero { padding: 4rem 0 2.5rem; position: relative; }
+/* 1. HERO */
+.hero { padding: 3.5rem 0 2.2rem; position: relative; }
 .hero-grid { display: grid; grid-template-columns: 115px 1fr; gap: 1.75rem; align-items: center; }
 .planet-avatar { position: relative; width: 110px; height: 110px; }
 .planet-avatar img {
     width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
     border: 2px solid var(--magenta);
-    box-shadow: 0 0 35px rgba(219, 39, 119, 0.35);
-}
-.orbit-dot {
-    position: absolute; top: -6px; right: 6px; width: 18px; height: 18px;
-    border-radius: 50%; background: var(--grad-title);
-    box-shadow: 0 0 12px var(--orange);
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
 }
 .octo-title {
     font-size: clamp(1.8rem, 4vw, 2.65rem);
@@ -98,41 +131,43 @@ body {
     font-size: 0.72rem; font-weight: 600; padding: 0.35rem 0.75rem;
     border-radius: 99px; background: var(--bg-card); border: 1px solid var(--bdr);
     color: var(--txt); text-decoration: none; transition: 0.2s;
+    word-break: break-all;
 }
-.c-pill:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
-.c-pill.pri { background: rgba(45, 212, 191, 0.12); border-color: rgba(45, 212, 191, 0.4); color: var(--cyan); }
+.c-pill:hover { border-color: var(--magenta); color: var(--magenta); transform: translateY(-2px); }
+.c-pill.pri { background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.4); color: var(--cyan); }
 
 /* Separador de Capítulo Infográfico */
-.sec { padding: 2.8rem 0; border-top: 1px solid var(--bdr); }
+.sec { padding: 2.6rem 0; border-top: 1px solid var(--bdr); }
 .sec-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--cyan); font-weight: 700; display: block; margin-bottom: 0.3rem; }
 .sec-h { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
-.sec-p { font-size: 0.84rem; color: var(--txt-sec); max-width: 600px; margin-bottom: 1.5rem; }
+.sec-p { font-size: 0.84rem; color: var(--txt-sec); max-width: 600px; margin-bottom: 1.4rem; }
 
 /* 2. CONSTELAÇÃO INTERATIVA */
 .constellation-wrap {
     position: relative;
-    background: radial-gradient(circle at center, rgba(147, 51, 234, 0.12) 0%, rgba(10, 14, 23, 0) 70%);
+    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
     border: 1px solid var(--bdr);
     border-radius: 18px;
     overflow: hidden;
-    height: 300px;
+    height: 290px;
+    width: 100%;
 }
 #netCanvas { width: 100%; height: 100%; display: block; cursor: crosshair; }
-.net-hint { position: absolute; bottom: 10px; right: 14px; font-size: 0.68rem; color: var(--txt-sec); pointer-events: none; }
+.net-hint { position: absolute; bottom: 10px; right: 14px; left: 14px; text-align: right; font-size: 0.66rem; color: var(--txt-sec); pointer-events: none; }
 
-/* 3. BIG STATS CALLOUTS (Octoverse Style) */
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin: 1.8rem 0 0.5rem; }
-.stat-item { border-left: 2px solid var(--magenta); padding-left: 0.9rem; }
+/* 3. BIG STATS CALLOUTS */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.15rem; margin: 1.8rem 0 0.5rem; }
+.stat-item { border-left: 2px solid var(--magenta); padding-left: 0.85rem; }
 .stat-item:nth-child(2) { border-color: var(--cyan); }
 .stat-item:nth-child(3) { border-color: var(--amber); }
 .stat-item:nth-child(4) { border-color: var(--purple); }
-.stat-num { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; color: var(--txt); }
-.stat-num span { color: var(--cyan); font-size: 1.2rem; }
+.stat-num { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; color: var(--txt); }
+.stat-num span { color: var(--magenta); font-size: 1.15rem; }
 .stat-lbl { font-size: 0.75rem; font-weight: 700; color: var(--txt); margin-top: 0.25rem; }
 .stat-sub { font-size: 0.68rem; color: var(--txt-sec); }
 
-/* 4. GRÁFICO DE BARRAS HORIZONTAIS (PROJETOS E IMPACTO) */
-.bar-chart { display: flex; flex-direction: column; gap: 0.7rem; }
+/* 4. GRÁFICO DE BARRAS HORIZONTAIS */
+.bar-chart { display: flex; flex-direction: column; gap: 0.65rem; }
 .bar-row {
     display: grid; grid-template-columns: 195px 1fr 90px; align-items: center; gap: 0.85rem;
     padding: 0.55rem 0.75rem; border-radius: 10px; background: var(--bg-card);
@@ -141,60 +176,70 @@ body {
 .bar-row:hover, .bar-row.active { border-color: var(--magenta); background: var(--bg-card-hi); }
 .bar-name { font-size: 0.78rem; font-weight: 700; color: var(--txt); }
 .bar-name small { display: block; font-size: 0.65rem; color: var(--txt-sec); font-weight: 400; }
-.bar-track { height: 18px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; position: relative; }
-.bar-fill { height: 100%; background: var(--grad-bar); border-radius: 4px; transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.bar-track { height: 18px; background: var(--track); border-radius: 4px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; background: var(--grad-bar); border-radius: 4px; transition: width 0.6s ease; }
 .bar-metric { font-size: 0.72rem; font-weight: 700; color: var(--cyan); text-align: right; }
 
-/* Card de Inspeção do Projeto Selecionado */
 .proj-drawer {
-    margin-top: 1rem; padding: 1.15rem 1.3rem; border-radius: 12px;
-    background: var(--bg-card-hi); border: 1px solid rgba(219, 39, 119, 0.4);
+    margin-top: 1rem; padding: 1.15rem 1.25rem; border-radius: 12px;
+    background: var(--bg-card-hi); border: 1px solid rgba(14, 165, 233, 0.35);
     display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
 }
-.proj-drawer h4 { font-size: 0.92rem; font-weight: 800; color: var(--amber); margin-bottom: 0.2rem; }
+.proj-drawer h4 { font-size: 0.92rem; font-weight: 800; color: var(--magenta); margin-bottom: 0.2rem; }
 .proj-drawer p { font-size: 0.78rem; color: var(--txt); max-width: 540px; }
 .flow-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
 .f-tag { font-size: 0.66rem; padding: 0.15rem 0.5rem; border-radius: 4px; background: var(--bg); color: var(--cyan); border: 1px solid var(--bdr); }
 
-/* 5. QUADRANTES DE LEADERBOARD (STACK + EDUCAÇÃO/CERTS) */
+/* 5. QUADRANTES DE LEADERBOARD */
 .quad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.quad-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 12px; padding: 1.15rem; }
+.quad-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 12px; padding: 1.1rem; }
 .quad-hdr { font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--txt); padding-bottom: 0.65rem; margin-bottom: 0.65rem; border-bottom: 1px solid var(--bdr); display: flex; justify-content: space-between; }
 .rank-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-.rank-item { display: flex; align-items: center; justify-content: space-between; font-size: 0.76rem; padding: 0.3rem 0; border-bottom: 1px dashed rgba(255,255,255,0.05); }
+.rank-item { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.75rem; padding: 0.3rem 0; border-bottom: 1px dashed var(--bdr); }
 .rank-item:last-child { border: 0; }
 .r-left { display: flex; align-items: center; gap: 0.5rem; }
 .r-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); flex-shrink: 0; }
 .r-dot.c { background: var(--cyan); }
 .r-dot.a { background: var(--amber); }
 .r-dot.p { background: var(--purple); }
-.r-meta { font-size: 0.66rem; color: var(--txt-sec); }
+.r-meta { font-size: 0.65rem; color: var(--txt-sec); text-align: right; flex-shrink: 0; }
 
-/* 6. CURVA EXPONENCIAL DE CARREIRA (2012 - 2026) */
-.curve-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 14px; padding: 1.25rem; }
-.curve-svg { width: 100%; height: 185px; overflow: visible; }
-.c-node { cursor: pointer; transition: transform 0.2s; }
-.c-node:hover { transform: scale(1.25); }
+/* 6. CURVA EXPONENCIAL DE CARREIRA */
+.curve-box { background: var(--bg-card); border: 1px solid var(--bdr); border-radius: 14px; padding: 1.2rem; }
+.curve-svg { width: 100%; height: auto; max-height: 185px; display: block; user-select: none; }
+.c-node { cursor: pointer; }
+.c-node circle.vis-dot { transition: r 0.2s ease, fill 0.2s ease; }
+.c-node:hover circle.vis-dot { r: 9px; fill: #eab308; }
+.year-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+.y-btn {
+    background: var(--bg); border: 1px solid var(--bdr); color: var(--txt-sec);
+    font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.65rem; border-radius: 6px; cursor: pointer; transition: 0.2s;
+}
+.y-btn.active, .y-btn:hover { border-color: var(--magenta); color: var(--magenta); background: var(--bg-card-hi); }
 .career-card {
-    margin-top: 0.85rem; padding: 0.95rem 1.1rem; border-radius: 10px;
+    margin-top: 0.75rem; padding: 0.95rem 1.1rem; border-radius: 10px;
     background: var(--bg); border: 1px solid var(--bdr);
     display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
 }
-.career-card strong { color: var(--amber); font-size: 0.86rem; }
+.career-card strong { color: var(--magenta); font-size: 0.86rem; }
 .career-card p { font-size: 0.77rem; color: var(--txt-sec); margin-top: 0.2rem; }
 
-/* 7. FOOTER PLANETÁRIO OCTOVERSE */
-.planet-footer { text-align: center; padding: 3.5rem 0 4rem; border-top: 1px solid var(--bdr); position: relative; }
-.planets-svg { width: 260px; height: 90px; margin-bottom: 1rem; }
+/* 7. FOOTER PLANETÁRIO */
+.planet-footer { text-align: center; padding: 3rem 0 3.5rem; border-top: 1px solid var(--bdr); }
+.planets-svg { width: 240px; max-width: 100%; height: 85px; margin-bottom: 0.8rem; }
 .footer-msg {
-    font-size: 1.35rem; font-weight: 800;
+    font-size: 1.25rem; font-weight: 800;
     background: var(--grad-title); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     margin-bottom: 0.4rem;
 }
 
 @media (max-width: 720px) {
+    .nav-links { display: none; }
     .hero-grid, .quad-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .planet-avatar { margin: 0 auto; }
+    .hero { text-align: center; }
+    .contact-pills { justify-content: center; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .bar-row { grid-template-columns: 1fr; gap: 0.35rem; }
     .bar-metric { text-align: left; }
 }
@@ -204,37 +249,39 @@ body {
 
 <header class="top-nav">
     <div class="nav-in">
-        <span class="mono" style="font-size:0.78rem;font-weight:700;color:var(--txt)">// LUIS GUIMARÃES</span>
+        <span class="mono brand-txt">// LUIS GUIMARÃES</span>
         <nav class="nav-links">
             <a href="#constelacao" id="n1">Ecossistema</a>
             <a href="#projetos" id="n2">Projetos</a>
             <a href="#rankings" id="n3">Stack & Formação</a>
             <a href="#evolucao" id="n4">Trajetória</a>
         </nav>
-        <div class="lang-box">
-            <button class="l-btn active" id="bPt" onclick="setLang('pt')">PT</button>
-            <button class="l-btn" id="bEn" onclick="setLang('en')">EN</button>
+        <div class="nav-Grouping">
+            <div class="lang-box">
+                <button class="l-btn active" id="bPt" onclick="setLang('pt')">PT</button>
+                <button class="l-btn" id="bEn" onclick="setLang('en')">EN</button>
+            </div>
+            <button class="theme-btn" id="themeBtn" title="Alternar tema Claro/Escuro" aria-label="Alternar tema">◐</button>
         </div>
     </div>
 </header>
 
 <main class="col">
-    <!-- 1. HERO -->
+    <!-- 1. HERO (Sem a bolinha acima da foto) -->
     <section class="hero">
         <div class="hero-grid">
             <div class="planet-avatar">
                 <img src="https://media.licdn.com/dms/image/v2/D4D03AQGwYWAygzN0mA/profile-displayphoto-scale_400_400/B4DZq9JKHtJMAg-/0/1764109886442?e=1793836800&v=beta&t=G9P2X246IM3aOW28ZliA48l_OfI4Kh9-xhmvFyUs79k" alt="Luis Cláudio Guimarães">
-                <span class="orbit-dot"></span>
             </div>
             <div>
-                <span class="mono" style="font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em" id="hEye">Tragetória Profissional & Acadêmica • 2012–2026</span>
+                <span class="mono" style="font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em" id="hEye">Trajetória Profissional & Acadêmica • 2012–2026</span>
                 <h1 class="octo-title">Luis Guimarães</h1>
                 <p class="octo-sub" id="hSub"></p>
                 <div class="contact-pills mono">
                     <a href="https://www.linkedin.com/in/luiscsguimaraes" target="_blank" class="c-pill">LinkedIn ↗</a>
                     <a href="https://github.com/LuisCSGuimaraes" target="_blank" class="c-pill">GitHub ↗</a>
                     <a href="mailto:luis.csguimaraes@gmail.com" class="c-pill">luis.csguimaraes@gmail.com</a>
-                    <span class="c-pill" style="color:var(--amber)" id="hLoc">📍 RJ </span>
+                    <span class="c-pill" style="color:var(--amber)" id="hLoc">📍 RJ</span>
                 </div>
             </div>
         </div>
@@ -249,7 +296,7 @@ body {
         <p class="sec-p" id="s1P"></p>
         <div class="constellation-wrap">
             <canvas id="netCanvas"></canvas>
-            <span class="net-hint mono" id="netHint">Passe o mouse para interagir com os nós da arquitetura</span>
+            <span class="net-hint mono" id="netHint">Passe o mouse ou toque para interagir com os nós</span>
         </div>
     </section>
 
@@ -277,18 +324,19 @@ body {
         <p class="sec-p" id="s4P"></p>
         <div class="curve-box">
             <svg class="curve-svg" viewBox="0 0 740 175" id="curveSvg"></svg>
+            <div class="year-pills mono" id="yearPills"></div>
             <div class="career-card" id="careerCard"></div>
         </div>
     </section>
 
-    <!-- 6. ENCERRAMENTO PLANETÁRIO -->
+    <!-- 6. ENCERRAMENTO PLANETÁRIO (Atualizado com a paleta Cyber-Trust) -->
     <footer class="planet-footer">
         <svg class="planets-svg" viewBox="0 0 260 90">
-            <circle cx="45" cy="48" r="22" fill="#14b8a6" opacity="0.9"/>
-            <ellipse cx="125" cy="36" rx="34" ry="10" fill="none" stroke="#f59e0b" stroke-width="4" transform="rotate(-15 125 36)"/>
-            <circle cx="125" cy="36" r="18" fill="#f97316"/>
-            <circle cx="205" cy="54" r="28" fill="#db2777"/>
-            <circle cx="85" cy="72" r="9" fill="#9333ea"/>
+            <circle cx="45" cy="48" r="22" fill="#10b981" opacity="0.9"/>
+            <ellipse cx="125" cy="36" rx="34" ry="10" fill="none" stroke="#eab308" stroke-width="3.5" transform="rotate(-15 125 36)"/>
+            <circle cx="125" cy="36" r="18" fill="#0ea5e9"/>
+            <circle cx="205" cy="54" r="28" fill="#6366f1"/>
+            <circle cx="85" cy="72" r="9" fill="#38bdf8"/>
         </svg>
         <div class="footer-msg" id="fMsg">Pronto para construir o próximo sistema em produção.</div>
         <p class="mono" style="font-size:0.74rem;color:var(--txt-sec)">Luis Cláudio da Silva Guimarães • luis.csguimaraes@gmail.com</p>
@@ -301,9 +349,9 @@ let lang = 'pt', selProj = 0, selCar = 4;
 const CONTENT = {
     pt: {
         nav: ["Ecossistema", "Projetos", "Stack & Formação", "Trajetória"],
-        hEye: "Engenharia, Dados & IA Aplicada • 2012–2026",
+        hEye: "Trajetória Profissional & Acadêmica • 2012–2026",
         hSub: "<strong>Analista de Sistemas | Dados, Automação e IA Aplicada.</strong> Pós-graduando em Data Science & Analytics (USP/Esalq). Especialista em traduzir dores complexas de negócio em sistemas em produção e plataformas seguras de agentes.",
-        hLoc: "📍 RJ ",
+        hLoc: "📍 RJ",
         stats: [
             { n: "14<span>+</span>", l: "Anos em TI & Dados", s: "De Estagiário a Sistemas & IA" },
             { n: "5<span> un</span>", l: "Filiais em Produção", s: "Sistema Nacional de Inadimplência" },
@@ -312,7 +360,7 @@ const CONTENT = {
         ],
         s1Tag: "01 / Grafo de Arquitetura", s1H: "Ecossistema Conectado: Negócio, Dados & IA",
         s1P: "Como as ferramentas do meu currículo se conectam na prática: do ERP jurídico e notas fiscais (NF-e) até Agentes de IA confinados e dashboards para sócios.",
-        netHint: "Passe o mouse sobre a constelação para interagir com os nós",
+        netHint: "Passe o mouse ou toque na constelação para interagir com os nós",
         s2Tag: "02 / Sistemas & Estudos", s2H: "Projetos em Produção e Modelos de Machine Learning",
         s2P: "Clique em qualquer barra abaixo para inspecionar a stack técnica, a arquitetura de segurança e abrir o notebook correspondente.",
         projs: [
@@ -332,9 +380,9 @@ const CONTENT = {
             { title: "Formação Acadêmica & Certificações", dot: "p", items: [["MBA Data Science & Analytics", "USP/Esalq (2027)"], ["Tecnólogo em Gestão de TI", "Estácio (2021)"], ["Certificações Microsoft AI-900 & PL-900", "Oficial (2023)"], ["Certificação Google Data Analytics", "Oficial (2023)"], ["Cursos Stanford ML, FIAP, USP & Sigmoidal", "Especialização"]] }
         ],
         s4Tag: "04 / Curva de Crescimento", s4H: "14+ Anos de Progressão (Gaia Silva Gaede)",
-        s4P: "Clique nos pontos da curva para ver as entregas de cada ciclo profissional desde 2012.",
+        s4P: "Passe o mouse ou clique nos pontos da curva (ou nos anos abaixo) para ver as entregas de cada ciclo desde 2012.",
         career: [
-            { yr: "2012", role: "Estagiário de TI", desc: "Configuração de hardware, software, redes locais e suporte direto a utilizadores." },
+            { yr: "2012", role: "Estagiário de TI", desc: "Configuração de hardware, software, redes locais e suporte direto a usuários." },
             { yr: "2013–2017", role: "Suporte Técnico B", desc: "Administração MySQL, Intranet (Apache/WordPress), Active Directory, DNS e rotinas Backup Exec." },
             { yr: "2017–Abr 26", role: "Analista de TI Pleno", desc: "Dashboards DRE/Balancetes em Power BI (DAX) p/ sócios, App de Compras (Power Apps/SharePoint), Calculadora RH (INSS/IRRF) e Azure AD/Intune." },
             { yr: "Abr–Ago 26", role: "Analista de TI Sênior", desc: "Gestão analítica do parque de ativos de TI (idade e investimento por unidade) e prototipação do sistema de inadimplência com IA generativa." },
@@ -344,7 +392,7 @@ const CONTENT = {
     },
     en: {
         nav: ["Ecosystem", "Projects", "Stack & Education", "Timeline"],
-        hEye: "Engineering, Data & Applied AI • 2012–2026",
+        hEye: "Professional & Academic Trajectory • 2012–2026",
         hSub: "<strong>Systems Analyst | Data, Automation & Applied AI.</strong> MBA Candidate in Data Science & Analytics (USP/Esalq). Specialist in translating complex business pain points into production software and secure AI agent platforms.",
         hLoc: "📍 RJ, Brazil",
         stats: [
@@ -355,7 +403,7 @@ const CONTENT = {
         ],
         s1Tag: "01 / Architecture Graph", s1H: "Connected Ecosystem: Business, Data & AI",
         s1P: "How my technical stack connects in production: from legal ERPs and tax invoices (NF-e) to sandboxed AI Agents and executive C-level dashboards.",
-        netHint: "Hover over the constellation to interact with the architecture nodes",
+        netHint: "Hover or tap the constellation to interact with the architecture nodes",
         s2Tag: "02 / Systems & Studies", s2H: "Production Systems & Machine Learning Models",
         s2P: "Click any bar below to inspect the technical stack, security architecture, and open the Jupyter Notebook.",
         projs: [
@@ -375,7 +423,7 @@ const CONTENT = {
             { title: "Academic Education & Certifications", dot: "p", items: [["MBA Data Science & Analytics", "USP/Esalq (2027)"], ["B.Sc. in IT Management", "Estácio (2021)"], ["Microsoft Certified: AI-900 & PL-900", "Official (2023)"], ["Google Data Analytics Certificate", "Official (2023)"], ["Stanford ML, FIAP, USP & Sigmoidal", "Specialized"]] }
         ],
         s4Tag: "04 / Growth Trajectory", s4H: "14+ Years of Progression (Gaia Silva Gaede)",
-        s4P: "Click the nodes along the curve to inspect key deliverables from each career stage since 2012.",
+        s4P: "Hover or click the nodes along the curve (or the year buttons below) to inspect each career stage since 2012.",
         career: [
             { yr: "2012", role: "IT Intern", desc: "Hardware, software, local network setup, and direct user support." },
             { yr: "2013–2017", role: "IT Support Tech B", desc: "MySQL admin, Intranet (Apache/WordPress), Active Directory, DNS, and Backup Exec routines." },
@@ -455,28 +503,41 @@ function renderQuads() {
     `).join('');
 }
 
+function selectCareerNode(idx) {
+    selCar = idx;
+    renderCurve();
+}
+
 function renderCurve() {
     const L = CONTENT[lang];
-    const pts = [[60, 145], [215, 130], [385, 95], [545, 58], [680, 22]];
-    const pathD = "M 60 145 Q 150 140, 215 130 T 385 95 T 545 58 T 680 22";
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const txtColor = isLight ? '#0f172a' : '#f8fafc';
+    const strokeBg = isLight ? '#ffffff' : '#070b14';
+    const pts = [[60, 145], [215, 130], [385, 95], [545, 58], [680, 26]];
+    const pathD = "M 60 145 Q 150 140, 215 130 T 385 95 T 545 58 T 680 26";
 
     document.getElementById('curveSvg').innerHTML = `
         <defs>
             <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#2dd4bf"/>
-                <stop offset="50%" stop-color="#db2777"/>
-                <stop offset="100%" stop-color="#f59e0b"/>
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="50%" stop-color="#0ea5e9"/>
+                <stop offset="100%" stop-color="#10b981"/>
             </linearGradient>
         </defs>
-        <line x1="40" y1="155" x2="705" y2="155" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4,4"/>
+        <line x1="40" y1="155" x2="705" y2="155" stroke="${isLight?'rgba(15,23,42,0.15)':'rgba(255,255,255,0.1)'}" stroke-dasharray="4,4"/>
         <path d="${pathD}" fill="none" stroke="url(#lineGrad)" stroke-width="3.5"/>
         ${pts.map((p, i) => `
-            <g class="c-node" onclick="selCar=${i};renderCurve()">
-                <circle cx="${p[0]}" cy="${p[1]}" r="${i===selCar?9:6}" fill="${i===selCar?'#f59e0b':'#db2777'}" stroke="#0a0e17" stroke-width="2"/>
-                <text x="${p[0]}" y="${p[1]-14}" text-anchor="middle" fill="${i===selCar?'#f59e0b':'#f0f6fc'}" class="mono" font-size="10" font-weight="700">${L.career[i].yr}</text>
+            <g class="c-node" onclick="selectCareerNode(${i})" onmouseenter="selectCareerNode(${i})">
+                <circle cx="${p[0]}" cy="${p[1]}" r="24" fill="transparent"/>
+                <circle class="vis-dot" cx="${p[0]}" cy="${p[1]}" r="${i===selCar?9:6}" fill="${i===selCar?'#10b981':'#0ea5e9'}" stroke="${strokeBg}" stroke-width="2.5"/>
+                <text x="${p[0]}" y="${p[1]-14}" text-anchor="middle" fill="${i===selCar?'#10b981':txtColor}" class="mono" font-size="10.5" font-weight="700">${L.career[i].yr}</text>
             </g>
         `).join('')}
     `;
+
+    document.getElementById('yearPills').innerHTML = L.career.map((c, i) => `
+        <button class="y-btn mono ${i===selCar?'active':''}" onclick="selectCareerNode(${i})">${c.yr}</button>
+    `).join('');
 
     const c = L.career[selCar];
     document.getElementById('careerCard').innerHTML = `
@@ -495,58 +556,87 @@ window.setLang = (l) => {
     renderPage();
 };
 
-// Canvas de Constelação Interativa (Octoverse Network)
+// Alternância de Tema Claro / Escuro
+const themeBtn = document.getElementById('themeBtn');
+if (localStorage.getItem('lg-octo-theme') === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+}
+themeBtn.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('lg-octo-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('lg-octo-theme', 'light');
+    }
+    renderCurve();
+});
+
+// Canvas de Constelação Interativa (Paleta Cyber-Trust)
 const cvs = document.getElementById('netCanvas'), ctx = cvs.getContext('2d');
 let W, H, mouse = { x: -999, y: -999 };
 const labels = ["Python", "SQL", "AI Harness", "WSL2/Bubblewrap", "Power BI (DAX)", "n8n", "Evolution API", "React/Node", "Azure", "Gitea", "FastAPI", "Scikit/SHAP", "Genetic Alg.", "USP/Esalq", "Docker", "Legal One ETL"];
-const colors = ["#db2777", "#2dd4bf", "#f59e0b", "#a855f7"];
+const colors = ["#0ea5e9", "#10b981", "#6366f1", "#38bdf8"];
 const nodes = labels.map((l, i) => ({
     l, c: colors[i % 4],
-    x: 60 + (i % 4) * 185 + Math.random() * 50,
-    y: 45 + Math.floor(i / 4) * 62 + Math.random() * 20,
-    vx: (Math.random() - 0.5) * 0.45,
-    vy: (Math.random() - 0.5) * 0.45,
-    r: i < 6 ? 6.5 : 4.5
+    x: 40 + (i % 4) * 160 + Math.random() * 40,
+    y: 40 + Math.floor(i / 4) * 58 + Math.random() * 18,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: i < 6 ? 6 : 4.5
 }));
 
 function resize() {
     W = cvs.width = cvs.parentElement.clientWidth;
     H = cvs.height = cvs.parentElement.clientHeight;
+    nodes.forEach(n => {
+        if (n.x > W - 40) n.x = Math.max(40, W - 60);
+        if (n.y > H - 25) n.y = Math.max(25, H - 40);
+    });
 }
 window.addEventListener('resize', resize); resize();
 cvs.addEventListener('mousemove', e => {
     const r = cvs.getBoundingClientRect();
     mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
 });
+cvs.addEventListener('touchmove', e => {
+    const r = cvs.getBoundingClientRect();
+    mouse.x = e.touches[0].clientX - r.left; mouse.y = e.touches[0].clientY - r.top;
+}, { passive: true });
 cvs.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
 
 function drawNet() {
     ctx.clearRect(0, 0, W, H);
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const baseText = isLight ? "#334155" : "#94a3b8";
+    const hiText = isLight ? "#0f172a" : "#ffffff";
+
     for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
         a.x += a.vx; a.y += a.vy;
-        if (a.x < 40 || a.x > W - 40) a.vx *= -1;
+        if (a.x < 35 || a.x > W - 85) a.vx *= -1;
         if (a.y < 25 || a.y > H - 25) a.vy *= -1;
 
         for (let j = i + 1; j < nodes.length; j++) {
             const b = nodes[j];
             const d = Math.hypot(a.x - b.x, a.y - b.y);
-            if (d < 155) {
-                ctx.strokeStyle = `rgba(219, 39, 119, ${(1 - d / 155) * 0.35})`;
+            if (d < 145) {
+                ctx.strokeStyle = `rgba(14, 165, 233, ${(1 - d / 145) * 0.35})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
             }
         }
         const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
-        if (dm < 130) {
-            ctx.strokeStyle = "rgba(45, 212, 191, 0.65)";
+        if (dm < 120) {
+            ctx.strokeStyle = "rgba(16, 185, 129, 0.7)";
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
         }
         ctx.fillStyle = a.c;
-        ctx.beginPath(); ctx.arc(a.x, a.y, dm < 60 ? a.r + 2.5 : a.r, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = dm < 60 ? "#fff" : "#c9d1d9";
-        ctx.font = `${dm < 60 ? "700 11px" : "500 10px"} 'JetBrains Mono', monospace`;
-        ctx.fillText(a.l, a.x + 9, a.y + 3);
+        ctx.beginPath(); ctx.arc(a.x, a.y, dm < 55 ? a.r + 2.5 : a.r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = dm < 55 ? hiText : baseText;
+        ctx.font = `${dm < 55 ? "700 11px" : "500 10px"} 'JetBrains Mono', monospace`;
+        ctx.fillText(a.l, a.x + 8, a.y + 3);
     }
     requestAnimationFrame(drawNet);
 }
